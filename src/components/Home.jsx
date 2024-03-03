@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -9,9 +10,9 @@ const Home = () => {
   return (
     <>
       <div className="container mx-auto max-w-4xl mt-5">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-end mb-4">
+        <Link to={'/create'} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-end mb-4">
           Create +
-        </button>
+        </Link>
         <table className="w-full mt-5">
           <thead className="border-b border-gray-300">
             <tr className="text-left">
