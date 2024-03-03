@@ -9,6 +9,7 @@ import Layout from './Layout.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './components/Home.jsx'
 import CreateUser from './components/CreateUser.jsx'
+import Updateuser from './components/Updateuser.jsx'
 
 
 const store = configureStore({
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "create",
         element: <CreateUser/>
+      },
+      {
+        path: "update/:id",
+        element: <Updateuser/>
       }
     ]
   }

@@ -1,10 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { deleteUser } from "../Reducer/UserReducer";
 
 const Home = () => {
 
   const users = useSelector(state => state.users)
+
+  const dispatch = useDispatch()
+
+  const handleDelete = (id) => {
+    dispatch(deleteUser({id: id}))
+  }
+
   console.log(users)
 
   return (
@@ -30,12 +38,12 @@ const Home = () => {
                   <td className="px-4 py-2">{data.name}</td>
                   <td className="px-4 py-2">{data.email}</td>
                   <td className="px-4 py-2">
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mr-2">
+                    <button onClick={() => handleDelete(data.id)} className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mr-2">
                       Delete
                     </button>
-                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
+                    <Link to={`/update/${data.id}`} className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
                       Update
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               ))
